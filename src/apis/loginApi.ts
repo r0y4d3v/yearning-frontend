@@ -8,17 +8,17 @@ export interface LoginFrom {
 }
 
 export function signIn(login: LoginFrom) {
-  return request.post(login.is_ldap ? '/ldap' : '/login', login);
+  return request.post(login.is_ldap ? '/yearning/ldap' : '/yearning/login', login);
 }
 
 export function systemRegisterState() {
-  return request.get('/fetch');
+  return request.get('/yearning/fetch');
 }
 
 export function systemLang() {
-  return request.get('/lang');
+  return request.get('/yearning/lang');
 }
 
 export function getOIDCState() {
-  return request.get('/oidc/state');
+  return request.get('/yearning/oidc/state');
 }

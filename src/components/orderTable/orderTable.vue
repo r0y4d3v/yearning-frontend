@@ -62,6 +62,7 @@
   import { tableRef } from '@/components/table';
   import { useElementSize, useWebSocket } from '@vueuse/core';
   import { checkSchema } from '@/lib';
+  import { COMMON_URI } from '@/config/request';
   import Profile from '@/components/orderProfile/index.vue';
   import Delay from './delay.vue';
 

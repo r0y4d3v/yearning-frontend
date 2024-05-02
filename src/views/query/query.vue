@@ -23,7 +23,7 @@
     </a-card>
     <br />
     <a-row :gutter="[16, 16]" style="margin-top: 1%">
-      <a-col :span="hide ? 0 : 4">
+      <a-col :span="hide ? 0 : 6">
         <a-card ref="leftSize" size="small">
           <a-tabs v-model:activeKey="tool">
             <a-tab-pane key="tree" :tab="$t('common.table.schema')">
@@ -35,7 +35,7 @@
           </a-tabs>
         </a-card>
       </a-col>
-      <a-col :span="hide ? 24 : 20">
+      <a-col :span="hide ? 24 : 18">
         <div :style="{ width: width - leftz - 15 + 'px' }">
           <a-card size="small">
             <a-tabs v-model:activeKey="feat">

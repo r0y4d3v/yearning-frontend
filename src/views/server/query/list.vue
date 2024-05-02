@@ -70,6 +70,7 @@
   import PageHeader from '@/components/pageHeader/pageHeader.vue';
   import QueryProfile from '@/components/queryProfile/queryProfile.vue';
   import { checkSchema, StateQueryUsage } from '@/lib';
+  import { COMMON_URI } from '@/config/request';
   import QuerySearch from './querySearch.vue';
   import { reactive, ref } from 'vue';
   import { useI18n } from 'vue-i18n';
@@ -139,7 +140,7 @@ import { message } from 'ant-design-vue';
       status: 7,
     } as QueryExpr,
     websocket: useWebSocket(
-      `${checkSchema()}/api/v2/audit/query/list?tp=${
+      `${checkSchema()}${COMMON_URI}/audit/query/list?tp=${
         props.isRecord ? 'record' : 'order'
       }`,
       {
