@@ -2,6 +2,32 @@
   <img src="../../assets/login/logo.png" width="350" />
   <br />
   <a-form :model="loginForm">
+    <a-form-item v-show="isLoginVisible">
+      <a-input
+        v-model:value="loginForm.username"
+        :placeholder="$t('user.username')"
+        style="border-radius: 10px"
+      />
+    </a-form-item>
+    <a-form-item v-show="isLoginVisible">
+      <a-input
+        v-model:value="loginForm.password"
+        :placeholder="$t('user.password')"
+        style="border-radius: 10px"
+        type="password"
+        @press-enter="() => userSignIn()"
+      />
+    </a-form-item>
+    <a-form-item v-show="isLoginVisible">
+      <a-space :size="50">
+        <a-checkbox v-model:checked="loginForm.is_ldap">
+          <span class="fff">LDAP</span>
+        </a-checkbox>
+      </a-space>
+    </a-form-item>
+    <a-button type="dashed" block ghost @click="userSignIn" v-show="isLoginVisible">{{
+      $t('common.signin')
+    }}</a-button>
     <a-button
       v-if="oidcEnabled"
       type="dashed"
@@ -31,6 +57,8 @@
 
   const store = useStore();
   const route = useRoute();
+
+  const isLoginVisible = ref(false);
 
   const oidcEnabled = ref(false);
   const oidcSignInUrl = ref('');
